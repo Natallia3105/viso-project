@@ -26,8 +26,6 @@ const RecipesList = ({ data = [], isLoading = false }: Props) => {
     );
   }
 
-  if (!data.length) return <EmptyMessage />;
-
   const pageCount = Math.ceil(filteredData.length / ITEMS_PER_PAGE);
   const currentItems = filteredData.slice(itemOffset, endOffset);
 

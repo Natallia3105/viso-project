@@ -2,6 +2,7 @@ import RecipesList from '../components/RecipesList.tsx';
 import SearchInput from '../components/SearchInput.tsx';
 import { useState } from 'react';
 import { useRecipesQuery } from '../services/recipes.ts';
+import EmptyMessage from '../components/EmptyMessage.tsx';
 
 const Home = () => {
   const [searchQ, setSearchQ] = useState<string>('');
@@ -18,6 +19,8 @@ const Home = () => {
       {!isLoading && data && data?.length > 0 && (
         <RecipesList isLoading={isLoading} data={data || []} />
       )}
+
+      {!isLoading && data && data?.length <= 0 && <EmptyMessage />}
     </div>
   );
 };
