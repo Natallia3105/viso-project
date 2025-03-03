@@ -5,12 +5,15 @@ export enum QueryKeys {
   Recipes = 'recipes',
 }
 
+const GithubPagesPrefix = import.meta.env.PROD ? '/viso-project/' : '/'
+
 export const AppRoutes = {
-  Home: '/',
-  Recipes: '/recipes',
-  Favorites: '/favorites',
+  Home: GithubPagesPrefix + '',
+  Recipes: GithubPagesPrefix + 'recipes',
+  Favorites: GithubPagesPrefix + 'favorites',
 
   resolveRecipe: (id: string) => `${AppRoutes.Recipes}/${id}`,
 };
+
 
 export const FAVORITES_RECIPES_KEY = 'favorites'
