@@ -1,7 +1,6 @@
 import { Recipe } from '../models/recipe.ts';
 import Spinner from './Spinner.tsx';
 import RecipeCard from './RecipeCard.tsx';
-import EmptyMessage from './EmptyMessage.tsx';
 import Pagination from './Pagination.tsx';
 import { useState } from 'react';
 
