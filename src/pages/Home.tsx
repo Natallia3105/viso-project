@@ -11,19 +11,12 @@ const Home = () => {
   return (
     <div className="flex flex-col gap-4 mb-40">
       <SearchInput
-        q={searchQ}
         onSearch={(q) => {
           setSearchQ(q);
         }}
       />
-      {!isLoading && data.length > 0 && (
-        <RecipesList
-          isLoading={isLoading}
-          data={data || []}
-          onFilterClear={() => {
-            setSearchQ('');
-          }}
-        />
+      {!isLoading && data && data?.length > 0 && (
+        <RecipesList isLoading={isLoading} data={data || []} />
       )}
     </div>
   );

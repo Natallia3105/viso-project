@@ -1,12 +1,10 @@
 import { useDebouncedCallback } from 'use-debounce';
 
 type Props = {
-  q: string;
-
   onSearch(q: string): void;
 };
 
-const SearchInput = ({ onSearch, q }: Props) => {
+const SearchInput = ({ onSearch }: Props) => {
   const debounced = useDebouncedCallback((value: string) => {
     onSearch(value);
   }, 1000);

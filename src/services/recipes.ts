@@ -23,9 +23,10 @@ export const formatRecipe = (recipe: Recipe): Recipe => {
   const formattedRecipe = {
     ingredients: [],
     measures: [],
-  } as Recipe;
+  } as unknown as Recipe;
 
-  Object.keys(recipe).forEach((key) => {
+  // @ts-ignore
+  Object.keys(recipe).forEach((key: keyof Recipe) => {
     const isIngKey = key.includes('strIngredient');
     const isMeasureKey = key.includes('strMeasure');
 
@@ -33,7 +34,7 @@ export const formatRecipe = (recipe: Recipe): Recipe => {
       const ingValue = recipe[key];
 
       if (ingValue && ingValue !== ' ') {
-        formattedRecipe.ingredients.push(ingValue);
+        formattedRecipe.ingredients.push(ingValue as string);
       }
 
       return;
@@ -43,12 +44,13 @@ export const formatRecipe = (recipe: Recipe): Recipe => {
       const measureValue = recipe[key];
 
       if (measureValue && measureValue !== ' ') {
-        formattedRecipe.measures.push(measureValue);
+        formattedRecipe.measures.push(measureValue as string);
       }
 
       return;
     }
 
+    // @ts-ignore
     formattedRecipe[key] = recipe[key];
   });
 

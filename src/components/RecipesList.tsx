@@ -3,7 +3,7 @@ import Spinner from './Spinner.tsx';
 import RecipeCard from './RecipeCard.tsx';
 import EmptyMessage from './EmptyMessage.tsx';
 import Pagination from './Pagination.tsx';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 const ITEMS_PER_PAGE = 6;
 const CLEAR_FILTER_TEXT = '-----Clear-----';
